@@ -3,18 +3,19 @@
 #include <string>
 #include <iostream>
 #include <map>
+#include <stdint.h>
 #include "Enums.h"
 using namespace std;
 class Section{
     public:
-    void addData(unsigned char val){
+    void addData(char val){
         data.insert_or_assign(counter,val);
         counter++;
     }
-    void addMultipleData(int number,unsigned char val);
-    void addTwoBytesData(u_short val);
-    void addFourBytesData(u_int32_t val);
-    void changeData(int position,unsigned char val){
+    void addMultipleData(int number,char val);
+    void addTwoBytesData(short val);
+    void addFourBytesData(int val);
+    void changeData(int position,char val){
         data.insert_or_assign(position,val);
     }
     string name;

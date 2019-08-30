@@ -14,9 +14,8 @@ int main(int argc, char **argv)
     string input, output;
     input=argv[1];//# dodati konstante
     output=argv[2];//# dodati konstante
-    Assembler::Assembler magician(input,output);
-    magician.doMagic();
-
+    Assembler magician(input,output);
+	magician.doMagic();
 
     return 0;
 }

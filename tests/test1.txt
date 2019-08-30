@@ -1,0 +1,23 @@
+.global a,b
+.extern c
+#komentar
+.text
+mov r1, a
+mov r2, $d
+add r1,r2
+jmp $d
+jmp $a
+jmp $b
+mov r5,&a
+.data
+a: .word 6
+b: .byte 1,2
+d: .word 8
+o: .word $a
+.equ j, a + b - d
+.bss
+f: .skip 12
+.section sek, RWX
+mm: .skip 12
+oo: .byte $a
+.end

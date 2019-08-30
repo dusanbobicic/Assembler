@@ -1,0 +1,45 @@
+#id	name	section	type	offset	scope	size	RWX
+8	.bss	.bss	section	0	local	12	R
+2	.data	.data	section	0	local	8	RW
+1	.text	.text	section	0	local	26	RX
+3	a	.data	label	0	global	0	
+4	b	.data	label	2	global	0	
+0	c	und	label	0	global	0	
+5	d	.data	label	4	local	0	
+9	f	.bss	label	0	local	0	
+7	j	.data	label	8	local	0	
+11	mm	sek	label	0	local	0	
+6	o	.data	label	6	local	0	
+10	sek	sek	section	0	local	12	RWX
+
+
+#.ret.data
+#offset	#type	vr[.data]
+0006	R_386_PC32	3
+#end
+
+#.ret.text
+#offset	#type	vr[.text]
+0003	R_386_32	3
+0008	R_386_32	2
+000F	R_386_32	2
+0013	R_386_PC32	3
+0018	R_386_32	3
+#end
+
+#.bss
+00	00	00	00	00	00	00	00	00	00	00	00	
+#end
+
+#.data
+06	00	01	02	08	00	FE	FF	
+#end
+
+#.text
+20	22	A0	00	00	20	24	8E	02	00	28	22	24	98	8E	02	00	98	8E	FE	FF	20	2A	00	00	00	
+#end
+
+#sek
+00	00	00	00	00	00	00	00	00	00	00	00	
+#end
+

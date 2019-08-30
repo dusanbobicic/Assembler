@@ -1,0 +1,1 @@
+Global cannot be defined out of the START section!

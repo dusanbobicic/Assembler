@@ -25,11 +25,6 @@ enum TokenType
     EXP,
     END
 };
-enum SymbolType
-{
-    SECTION,
-    LABEL
-};
 enum Scope
 {
     LOCAL,
@@ -45,5 +40,8 @@ enum AddressingType
     MEM,
     PC_POM,
     
+};
+enum RelType{
+    R_386_32,R_386_PC32
 };
 #endif

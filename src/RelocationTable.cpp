@@ -24,15 +24,15 @@ string Relocation::getRelTypeText()const {
     }
 }
 ostream& operator<<(ostream& os,const RelocationTable& rt){
-    os<<"#.ret."<<rt.section<<endl;
-    os<<"#offset\t#type\tvr[."<<rt.section<<"]"<<endl;
+    os<<"#.ret"<<rt.section<<endl;
+    os<<"#offset\t#type\tvr["<<rt.section<<"]"<<endl;
     for(Relocation r:rt.relocations){
         os<<r<<endl;
     }
     os<<"#end";
     return os;
 }
-ostream& operator<<(ostream&os,const Relocation r){
+ostream& operator<<(ostream&os,const Relocation& r){
     
     os<<r.getHexOffset()<<"\t"<<r.getRelTypeText()<<"\t"<<r.s.number;
     return os;

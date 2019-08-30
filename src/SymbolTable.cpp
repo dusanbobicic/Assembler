@@ -6,7 +6,7 @@ SymbolTable::SymbolTable(){
 }
 bool SymbolTable::addNewSymbol(Symbol &s)
     {
-        if (symbols.find(s.name) != symbols.end())
+        if (symbols.find(s.name) == symbols.end())
         {
             s.number=counter;
             counter++;

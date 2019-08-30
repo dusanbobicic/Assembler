@@ -16,7 +16,6 @@ public:
     void split(string line, const char *delim, vector<string> &tokens);
     void removeWhiteSpacesFromStart(string &line);
     static TokenType parseToken(const string& parse);
-   
     vector<vector<string>>& getAssembly();
     static const char *DELIMETERS;
 

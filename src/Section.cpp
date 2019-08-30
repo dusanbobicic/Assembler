@@ -1,45 +1,46 @@
 #include "Section.h"
 
 
-void Section::addMultipleData(int number,unsigned char val){
+void Section::addMultipleData(int number,char val){
     for(int i=0;i<number;i++){
         addData(val);
     }
 }
-void Section::addTwoBytesData(u_short val){
+void Section::addTwoBytesData(short val){
     //obrnutim redosledom jer je little endian
-    u_char MASK=0xFF;
+    char MASK=0xFF;
     
-    u_char value=(u_char)val & MASK;//donji bajt
+    unsigned char value=(unsigned char)val & MASK;//donji bajt
     addData(value);
     value=(val>>8) & MASK;//gornji bajt
     addData(value);
    
 }
-void Section::addFourBytesData(u_int32_t val){
+void Section::addFourBytesData(int val){
 //obrnutim redosledom jer je little endian
-    u_char MASK=0xFF;
+    char MASK=0xFF;
     //first
-    u_char value=(u_char)val & MASK;//donji bajt
+    char value=(char)val & MASK;//donji bajt
     addData(value);
     //second
-    value=(u_char)(val>>8) & MASK;//gornji bajt
+    value=(char)(val>>8) & MASK;//gornji bajt
     addData(value);
     //third
-    value=(u_char)(val>>16) & MASK;//gornji bajt
+    value=(char)(val>>16) & MASK;//gornji bajt
     addData(value);
     //fourth
-    value=(u_char)(val>>24) & MASK;//gornji bajt
+    value=(char)(val>>24) & MASK;//gornji bajt
     addData(value);
 }
 ostream& operator<<(ostream &os,const Section& s){
     os<<"#"<<s.name<<endl;
+	char str[10];
     for(auto it:s.data){
-        char str[5];
+        
         sprintf(str,"%02X",it.second);
-        string s(str);
-        os<<s<<"\t";
+        string out(str);
+        os<<out<<"\t";
     }
-    
+	os << endl << "#end";
     return os;
 }

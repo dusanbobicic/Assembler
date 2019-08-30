@@ -4,10 +4,20 @@
 #include <iostream>
 #include <vector>
 #include "Symbol.h"
+#include "Enums.h"
 using namespace std;
 
-enum RelType{
-    R_386_32,R_386_PC32
+
+class Relocation{
+    public:
+    Relocation(short offset,RelType relT,Symbol& s);
+
+    friend ostream& operator<<(ostream&os,const Relocation &r);
+    string getHexOffset()const;
+    string getRelTypeText()const;
+    Symbol s;
+    short offset;
+    RelType relT;
 };
 class RelocationTable{
     public:
@@ -23,16 +33,7 @@ class RelocationTable{
     vector<Relocation> relocations;
 
 };
-class Relocation{
-    public:
-    Relocation(short offset,RelType relT,Symbol& s);
-    friend ostream& operator<<(ostream&os,const Relocation r);
-    string getHexOffset()const;
-    string getRelTypeText()const;
-    Symbol& s;
-    short offset;
-    RelType relT;
-};
+
 
 
 #endif
